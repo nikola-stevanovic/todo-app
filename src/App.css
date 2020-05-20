@@ -8,7 +8,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-
 .wrapper {
   margin: auto;
   margin-top: 200px;
@@ -16,49 +15,9 @@ body {
   border-radius: 12px;
   background-color: #fff;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-
-}
-.new-todo-wrapper {
-  width: 100%;
-  margin-bottom: 40px;
-}
-.new-todo-input {
-  width: 80%;
-  box-sizing: border-box;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: 2px solid #eee;
-  border-radius: 7px 0 0 7px;
-  color: #444;
-}
-.new-todo-button {
-  display: inline-block;
-  vertical-align: top;
-  width: 20%;
-  height: 42px;
-  box-sizing: border-box;
-  font-size: 16px;
-  border: none;
-  border-radius: 0 7px 7px 0;
-  color: white;
-  background: firebrick;
-  cursor: pointer;
-}
-.single-task {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  border-bottom: 1px dashed #eee;
-}
-.single-task span {
-  font-size: 16px;
-}
-.remove-task {
-  padding: 0 5px;
-  cursor: pointer;
 }
 @media screen and (min-width: 640px) {
   .wrapper {
-    max-width: 60%;
+    max-width: 50%;
   }
 }

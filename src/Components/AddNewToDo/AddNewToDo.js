@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './AddNewToDo.css';
 
 class AddNewToDo extends Component {
     onInputChange = (value) => {

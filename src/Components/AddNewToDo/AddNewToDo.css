@@ -1,0 +1,26 @@
+.new-todo-wrapper {
+    width: 100%;
+    margin-bottom: 40px;
+}
+.new-todo-input {
+    width: 80%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #eee;
+    border-radius: 7px 0 0 7px;
+    color: #444;
+}
+.new-todo-button {
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    height: 42px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border: none;
+    border-radius: 0 7px 7px 0;
+    color: white;
+    background: firebrick;
+    cursor: pointer;
+}
