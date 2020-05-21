@@ -10,10 +10,16 @@ class ToDoList extends Component {
     };
 
     componentDidMount() {
-        ToDoStore.on('change', () => {
-            this.setState({tasks: ToDoStore.getAll()});
-        });
+        ToDoStore.on('change', this.getAllToDos);
     };
+
+    componentWillUnmount() {
+        ToDoStore.removeListener( 'change', this.getAllToDos);
+    };
+
+    getAllToDos = () => {
+        this.setState({tasks: ToDoStore.getAll()});
+    }
 
     removeToDo = (index) => {
         ToDoActions.removeToDoItem(index);
