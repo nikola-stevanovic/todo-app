@@ -1,53 +1,30 @@
-import React, {Component} from 'react';
+import React from 'react';
 import AddNewToDo from "./Components/AddNewToDo/AddNewToDo";
-import SingleToDo from "./Components/SingleToDo/SingleToDo";
+import ToDoList from "./Components/ToDoList/ToDoList";
+import {connect} from '@cerebral/react';
+import {state, sequences} from 'cerebral/tags';
 import './App.css';
 
-class App extends Component {
-    state = {
-        inputValue: '',
-        tasks: [],
-    };
-
-    inputValueChangeHandler = (value) => {
-        this.setState({inputValue: value});
-    };
-
-    addToDoHandler = () => {
-        const tasks = [...this.state.tasks];
-        tasks.unshift(this.state.inputValue);
-        this.setState({tasks});
-        this.setState({inputValue: ''});
-    };
-
-    removeToDoHandler = (index) => {
-        const tasks = [...this.state.tasks]
-        tasks.splice(index, 1);
-        this.setState({tasks});
-    };
-
-    render() {
-        const {tasks, inputValue} = this.state;
+export default connect({
+        inputValue: state`inputValue`,
+        tasks: state`tasks`,
+        addNewTodo: sequences`addNewTodo`,
+        removeTodo: sequences`removeTodo`,
+        inputChange: sequences`inputChange`
+    },
+    function App({inputValue, tasks, inputChange, addNewTodo, removeTodo}) {
         return (
             <div className="wrapper">
                 <AddNewToDo
                     inputValue={inputValue}
-                    onInputChange={this.inputValueChangeHandler}
-                    addNewToDo={this.addToDoHandler}
+                    onInputChange={(inputValue) => inputChange({inputValue})}
+                    addNewToDo={addNewTodo}
                 />
-                {tasks.map((task, index) => {
-                    return <SingleToDo
-                                key={index}
-                                task={task}
-                                removeToDo={() => this.removeToDoHandler(index)}
-                            />
-                })
-                }
+                <ToDoList
+                    tasks={tasks}
+                    removeToDo={(index) => removeTodo({index})}
+                />
             </div>
         );
     }
-}
-
-export default App;
-
-
+)

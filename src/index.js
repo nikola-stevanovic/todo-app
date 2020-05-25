@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { Container } from '@cerebral/react';
+import app from './App/index';
+import App from "./App";
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Container app={app}>
+        <App />
+    </Container>
+    ,
   document.getElementById('root')
 );
 
