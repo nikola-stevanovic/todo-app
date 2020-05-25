@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from "@cerebral/react";
 import {sequences, state} from "cerebral/tags";
 import SingleToDo from "../SingleToDo/SingleToDo";
-import './SingleToDo.css';
 
 export default connect({
         tasks: state`tasks`,
