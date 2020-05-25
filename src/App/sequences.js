@@ -4,7 +4,7 @@ import {set, unshift, unset} from "cerebral/factories";
 export const inputChange = set(state`inputValue`, props`inputValue`);
 
 export const addNewTodo = [
-    unshift(state`tasks`, state`inputValue`),
+    unshift(state`tasks`, props`inputValue`),
     set(state`inputValue`, '')
     ];
 

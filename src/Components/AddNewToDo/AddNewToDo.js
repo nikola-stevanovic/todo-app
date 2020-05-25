@@ -17,7 +17,7 @@ export default connect({
                        onChange={(event) => inputChange({inputValue: event.target.value})}
                        id="new-todo"
                        className="new-todo-input"/>
-                <button className="new-todo-button" onClick={() => addNewTodo()}>Add</button>
+                <button className="new-todo-button" onClick={() => addNewTodo({inputValue})}>Add</button>
             </div>
         );
     }
