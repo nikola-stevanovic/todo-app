@@ -1,25 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {connect} from "@cerebral/react";
+import {sequences, state} from "cerebral/tags";
 import SingleToDo from "../SingleToDo/SingleToDo";
 import './SingleToDo.css';
 
-class ToDoList extends Component {
-
-    removeToDo = (index) => {
-        this.props.removeToDo(index);
-    }
-
-    render() {
-        const {tasks} = this.props;
+export default connect({
+        tasks: state`tasks`,
+        removeTodo: sequences`removeTodo`,
+    },
+    function ToDoList({tasks, removeTodo}) {
         return (
             tasks.map((task, index) => {
                 return <SingleToDo
                     key={index}
                     task={task}
-                    removeToDo={() => this.removeToDo(index)}
+                    removeToDo={() => removeTodo({index})}
                 />
             })
         );
     }
-}
-
-export default ToDoList;
+);
